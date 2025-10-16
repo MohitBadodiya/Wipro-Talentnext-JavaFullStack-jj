@@ -1,0 +1,95 @@
+/*
+
+1️⃣ Create a class named DailyTasks with three methods:
+   - doStringConcat(String s1, String s2)
+   - sortValues(int[] arr)
+   - checkPresence(String str, String a)
+
+2️⃣ Create test classes:
+   - TestStringConcat → test doStringConcat() using assertEquals
+   - TestSort → test sortValues() using assertArrayEquals
+   - TestCheckPresence → test checkPresence() using assertTrue/assertFalse
+
+3️⃣ Create a Test Suite to run all three together.
+-------------------------------------------------------
+This file covers all tasks together 
+-------------------------------------------------------
+*/
+
+import java.util.Arrays;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
+import static org.junit.Assert.*;
+
+// =======================
+// Main functional class
+// =======================
+class DailyTasks {
+    public String doStringConcat(String s1, String s2) {
+        return s1 + " " + s2;
+    }
+
+    public int[] sortValues(int arr[]) {
+        Arrays.sort(arr);
+        return arr;
+    }
+
+    public boolean checkPresence(String str, String a) {
+        return str.contains(a);
+    }
+}
+
+// =======================
+// Test 1: String Concat
+// =======================
+class TestStringConcat {
+    @Test
+    public void testDoStringConcat() {
+        DailyTasks dt = new DailyTasks();
+        assertEquals("Hello World", dt.doStringConcat("Hello", "World"));
+    }
+}
+
+// =======================
+// Test 2: Sort Values
+// =======================
+class TestSort {
+    @Test
+    public void testSortValues() {
+        DailyTasks dt = new DailyTasks();
+        int[] input = {5, 3, 1, 4, 2};
+        int[] expected = {1, 2, 3, 4, 5};
+        assertArrayEquals(expected, dt.sortValues(input));
+    }
+}
+
+// =======================
+// Test 3: Check Presence
+// =======================
+class TestCheckPresence {
+    @Test
+    public void testCheckPresenceTrue() {
+        DailyTasks dt = new DailyTasks();
+        assertTrue(dt.checkPresence("Java Programming", "Java"));
+    }
+
+    @Test
+    public void testCheckPresenceFalse() {
+        DailyTasks dt = new DailyTasks();
+        assertFalse(dt.checkPresence("Python Programming", "Java"));
+    }
+}
+
+// =======================
+// Test Suite
+// =======================
+@RunWith(Suite.class)
+@Suite.SuiteClasses({
+        TestStringConcat.class,
+        TestSort.class,
+        TestCheckPresence.class
+})
+public class JunitLearning {
+    // Empty class used only to run all test cases
+}

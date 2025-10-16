@@ -1,0 +1,84 @@
+/*
+Question:
+Create a Project named JunitLearning
+
+1. Create a package named com.wipro.task
+2. Copy the given class into the com.wipro.task package:
+
+   package com.wipro.task;
+   import java.util.Arrays;
+
+   public class DailyTasks {
+       public String doStringConcat(String s1, String s2) {
+           return s1 + " " + s2;
+       }
+
+       public int[] sortValues(int arr[]) {
+           Arrays.sort(arr);
+           return arr;
+       }
+
+       public boolean checkPresence(String str, String a) {
+           return str.contains(a);
+       }
+   }
+
+3. Create a new package called com.wipro.test
+4. Create a class named TestStringConcat to test the functionality of doStringConcat method 
+   [Hint: use assertEquals method]
+
+----------------------------------------------
+Below is a solution 
+----------------------------------------------
+*/
+
+import java.util.Arrays;
+
+class DailyTasks {
+
+    // Concatenates two strings with a space
+    public String doStringConcat(String s1, String s2) {
+        return s1 + " " + s2;
+    }
+
+    // Sorts an integer array in ascending order
+    public int[] sortValues(int arr[]) {
+        Arrays.sort(arr);
+        return arr;
+    }
+
+    // Checks if substring 'a' is present in string 'str'
+    public boolean checkPresence(String str, String a) {
+        return str.contains(a);
+    }
+}
+
+public class JunitLearning {
+
+    public static void main(String[] args) {
+
+        DailyTasks dt = new DailyTasks();
+
+        // ---- Test 1: doStringConcat ----
+        String result1 = dt.doStringConcat("Hello", "World");
+        if (result1.equals("Hello World"))
+            System.out.println("Test 1 (doStringConcat): Passed ✅");
+        else
+            System.out.println("Test 1 (doStringConcat): Failed ❌ - Got: " + result1);
+
+        // ---- Test 2: sortValues ----
+        int[] arr = {5, 2, 8, 1};
+        int[] sorted = dt.sortValues(arr);
+        if (Arrays.equals(sorted, new int[]{1, 2, 5, 8}))
+            System.out.println("Test 2 (sortValues): Passed ✅");
+        else
+            System.out.println("Test 2 (sortValues): Failed ❌");
+
+        // ---- Test 3: checkPresence ----
+        boolean presence = dt.checkPresence("Java Programming", "Java");
+        if (presence)
+            System.out.println("Test 3 (checkPresence): Passed ✅");
+        else
+            System.out.println("Test 3 (checkPresence): Failed ❌");
+    }
+}

@@ -1,0 +1,22 @@
+/*
+Create a class named TestSort to test the functionality 
+of the sortValues() method [Hint: use assertArrayEquals()]
+-------------------------------------------------------
+*/
+
+package com.wipro.test;
+
+import com.wipro.task.DailyTasks;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class TestSort {
+
+    @Test
+    public void testSortValues() {
+        DailyTasks dt = new DailyTasks();
+        int[] input = {5, 3, 1, 4, 2};
+        int[] expected = {1, 2, 3, 4, 5};
+        assertArrayEquals(expected, dt.sortValues(input));
+    }
+}

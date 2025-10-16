@@ -1,1 +1,31 @@
+/*
+Create a Project named JunitLearning
 
+1. Create a package named com.wipro.task
+2. Copy the given class into the com.wipro.task package
+
+-------------------------------------------------------
+*/
+
+package com.wipro.task;
+
+import java.util.Arrays;
+
+public class DailyTasks {
+
+    // Concatenates two strings with a space
+    public String doStringConcat(String s1, String s2) {
+        return s1 + " " + s2;
+    }
+
+    // Sorts integer array in ascending order
+    public int[] sortValues(int arr[]) {
+        Arrays.sort(arr);
+        return arr;
+    }
+
+    // Checks if substring 'a' is present inside 'str'
+    public boolean checkPresence(String str, String a) {
+        return str.contains(a);
+    }
+}
